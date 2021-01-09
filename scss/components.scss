@@ -1,0 +1,227 @@
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+p {
+	margin-bottom: 20px;
+	text-align: justify;
+	color: $gray-800;
+
+	a {
+		color: $active-element;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+button, .button, input[type=submit] {
+	cursor: pointer;
+	padding: 9px 15px;
+	border: 0;
+	text-decoration: none;
+	background-color: lighten($brand-primary, 2%);
+	color: #fff;
+	border-radius: 3px;
+	font-family: $font-family-body;
+	font-size: 1em;
+	transition: all 400ms ease;
+
+	&:hover {
+		transform: scale(1.02);
+		box-shadow: 0px 2px 6px -2px rgba(0,0,0, .7);
+	}
+}
+
+// Forms
+form {
+	margin-bottom: 20px;	
+}
+
+input[type=text], input[type=search] {
+	border: 2px solid $gray-100;
+	border-radius: 3px;
+	height: 40px;
+	padding: 8px 12px;
+	font-size: .9em;
+	vertical-align: middle;
+	min-width: 250px;
+}	
+
+input[type=search]:active, input[type=search]:focus, input[type=text]:active, input[type=text]:focus {
+	border: 2px solid $active-element;
+	outline: none;
+}
+
+input[type=text] {
+	margin-bottom: 15px;
+}
+
+:not(.search-form) {
+	> input[type=submit] {
+		margin-top: 15px;
+	}
+}
+
+.search-form {
+	display: flex;
+	flex-wrap: wrap;
+
+	input[type=submit], button[type=submit] {
+		margin-left: 10px;
+	}
+}
+
+ul.checkbox-group {
+	list-style-type: none;
+	padding-left: 3px;
+
+	> li {
+		padding-bottom: 5px;
+	}
+}
+
+input[type="checkbox"] {
+	position: relative;
+	-webkit-appearance: none;
+	height: 20px;
+	width: 20px;
+	border: 2px solid $gray-100;
+	border-radius: 3px;
+}
+
+input[type="checkbox"]:focus {
+	outline: none;
+}
+
+input[type="checkbox"]:hover {
+	border: 2px solid $active-element;
+}
+
+input[type="checkbox"]:checked {
+	
+	&:after {
+		content: "";
+		width: 10px;
+		height: 5px;
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		border: solid darken($active-element, 22%);
+		border-width: 0 0 3px 3px;
+		transform: rotate(-45deg);
+	}
+}
+
+label.display-block {
+	padding-bottom: 5px;
+	flex-basis: 100%;
+	flex-shrink: 0;
+	flex-grow: 0;
+}
+
+input[type=checkbox] + label, input[type=radio] + label {
+	vertical-align: top;
+	position: relative;
+	top: -2px;
+}
+
+
+input[type=radio] {
+	position: relative;
+	width: 20px;
+	height: 20px;
+
+	&:after {  // only works in Chrome (not W3 allowed)
+		content: "";
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		background-color: #fff;
+		pointer-events: none;
+		border: 2px solid $gray-100;
+		border-radius: 50%;
+		box-sizing: border-box;
+	}
+}
+input[type=radio]:checked {
+	&:after {
+		border: 6px solid darken($active-element, 22%);
+	}
+}
+input[type=radio]:hover:not(:checked) {
+	&:after {
+		border: 2px solid $active-element;
+	}
+}
+
+// Switch (custom checkbox)
+.switch {
+	width: 60px;
+	height: 25px;
+	margin-bottom: 10px;
+	position: relative;
+
+	input[type="checkbox"] {
+		opacity: 0;
+		height: 100%;
+		width: 50%;
+		position: absolute;
+		left: 0;
+		right: unset;
+	}
+
+	.slider {
+		width: 100%;
+		height: 100%;
+		background-color: $gray-100;
+		pointer-events: none;
+		transition: .4s;
+		border-radius: 34px;
+	}
+
+	.slider:before {
+		content: "";
+		width: 30px;
+		height: 30px;
+		background-color: $gray-200;
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		pointer-events: none;
+		transition: .4s;
+		border-radius: 34px;
+	}
+
+	input:checked {
+		left: unset;
+		right: 0;
+	}
+
+	input:checked + .slider:before {
+		background-color: darken($active-element, 22%);		
+		transform: translateX(32px);
+	}
+
+	input:checked + .slider {
+		background-color: lighten($active-element, 10%);
+	}
+
+	// override normal checkbox style
+	input:checked:after {
+		display: none;
+	}
+
+} 
+
+
+
+
+
+
+
+
+

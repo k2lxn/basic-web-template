@@ -1,0 +1,20 @@
+header {
+	background: $gray-100;
+}
+
+footer {
+	background: $gray-600;
+	color: $gray-100;
+}
+
+.display-block {
+	display: block;
+}
+
+.display-inline {
+	display: inline-block;
+}
+
+.hidden, .hidden-text {
+	display: none;
+}
