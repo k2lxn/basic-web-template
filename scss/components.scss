@@ -36,6 +36,15 @@ button, .button, input[type=submit] {
 	}
 }
 
+header {
+	background: $gray-100;
+}
+
+footer {
+	background: $gray-600;
+	color: $gray-100;
+}
+
 // Forms
 form {
 	margin-bottom: 20px;	

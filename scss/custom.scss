@@ -1,12 +1,42 @@
-header {
-	background: $gray-100;
+// Text scrolling
+@keyframes scroll_text {
+	10% {
+		text-indent: 0;
+	}
+	100% {
+		text-indent: var(--text-width);
+	}
 }
 
-footer {
-	background: $gray-600;
-	color: $gray-100;
+.scroll-wrapper {
+	overflow-x: hidden;
+	white-space: nowrap;
+	width: 300px;
+	padding: 15px;
+	background-color: $gray-800;
+	color: #fff;
+
+	> .scroll {
+		white-space: nowrap;
+		min-width: 100%;
+		width: max-content;
+	}
+
+	&.scrollable {
+		animation-name: scroll_text;
+		animation-duration: var(--scroll-time);
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-delay: 0s;
+
+		.scroll > span:first-of-type {
+			margin-right: 100px;
+		}
+	}
 }
 
+
+// Keep at the end of compiled CSS
 .display-block {
 	display: block;
 }

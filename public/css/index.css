@@ -68,6 +68,13 @@ button, .button, input[type=submit] {
     transform: scale(1.02);
     box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.7); }
 
+header {
+  background: #d9d9d9; }
+
+footer {
+  background: #343434;
+  color: #d9d9d9; }
+
 form {
   margin-bottom: 20px; }
 
@@ -227,12 +234,31 @@ footer {
 section {
   padding-bottom: 20px; }
 
-header {
-  background: #d9d9d9; }
+@keyframes scroll_text {
+  10% {
+    text-indent: 0; }
+  100% {
+    text-indent: var(--text-width); } }
 
-footer {
-  background: #343434;
-  color: #d9d9d9; }
+.scroll-wrapper {
+  overflow-x: hidden;
+  white-space: nowrap;
+  width: 300px;
+  padding: 15px;
+  background-color: #1a1a1a;
+  color: #fff; }
+  .scroll-wrapper > .scroll {
+    white-space: nowrap;
+    min-width: 100%;
+    width: max-content; }
+  .scroll-wrapper.scrollable {
+    animation-name: scroll_text;
+    animation-duration: var(--scroll-time);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 0s; }
+    .scroll-wrapper.scrollable .scroll > span:first-of-type {
+      margin-right: 100px; }
 
 .display-block {
   display: block; }
