@@ -22,7 +22,15 @@ function set_text_scolling() {
 	});
 }
 
+function position_tooltips() {
+	document.querySelectorAll( ".tooltip-center" ).forEach( function( tooltip ){
+		let offset = ( tooltip.parentElement.getBoundingClientRect().width / 2 ) - ( tooltip.getBoundingClientRect().width /2 ) ;
+		tooltip.style.left = `${offset}px` ;
+	});
+}
+
 
 window.onload = function() {
 	set_text_scolling();
+	position_tooltips();
 }

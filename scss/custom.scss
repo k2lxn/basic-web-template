@@ -36,6 +36,72 @@
 }
 
 
+// Tooltips
+ul#tooltip-demo {
+	list-style-type: none;
+	padding-left: 0;
+	display: flex;
+	justify-content: space-between;
+	max-width: 550px;
+
+	li {
+		overflow: visible;
+		display: inline-block;
+		cursor: default;
+
+		&:hover .tooltip {
+			visibility: visible;
+		}
+	}
+}
+
+.tooltip {
+	visibility: hidden;
+	position: absolute;
+	display: block;
+	width: max-content;
+	//width: -moz-max-content;    /* Firefox/Gecko */
+  	//width: -webkit-max-content; /* Chrome */
+  	width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+	height: 2rem;
+	top: 2rem;
+	text-align: center;
+	white-space: nowrap;
+	padding: 5px 10px;
+	border-radius: 5px;
+	background-color: $gray-800;
+	color: #fff;
+	z-index: 20;
+
+	&:before {
+		content: '';
+		width: 0px;
+		height: 0px;
+		position: absolute;
+		border-left: 7px solid transparent;
+		border-right: 7px solid transparent;
+		border-bottom: 7px solid $gray-800;
+		top: -7px;
+		left: calc(50% - 3.5px);
+	}
+
+	&.tooltip-left {
+		left: -5px;
+		&:before, &:after {
+			left: 15px;
+		}
+	}
+
+	&.tooltip-right {
+		right: -7px;
+		&:before, &:after {
+			left: calc(100% - 33px);
+		}
+	}
+}
+
+
+
 // Keep at the end of compiled CSS
 .display-block {
 	display: block;

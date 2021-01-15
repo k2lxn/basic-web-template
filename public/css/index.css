@@ -314,7 +314,8 @@ input[type=radio]:hover:not(:checked):after {
 * {
   margin: 0;
   bottom: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  position: relative; }
 
 html, body {
   width: 100%;
@@ -363,6 +364,54 @@ section {
     animation-delay: 0s; }
     .scroll-wrapper.scrollable .scroll > span:first-of-type {
       margin-right: 100px; }
+
+ul#tooltip-demo {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 550px; }
+  ul#tooltip-demo li {
+    overflow: visible;
+    display: inline-block;
+    cursor: default; }
+    ul#tooltip-demo li:hover .tooltip {
+      visibility: visible; }
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  display: block;
+  width: max-content;
+  width: intrinsic;
+  /* Safari/WebKit uses a non-standard name */
+  height: 2rem;
+  top: 2rem;
+  text-align: center;
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #1a1a1a;
+  color: #fff;
+  z-index: 20; }
+  .tooltip:before {
+    content: '';
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #1a1a1a;
+    top: -7px;
+    left: calc(50% - 3.5px); }
+  .tooltip.tooltip-left {
+    left: -5px; }
+    .tooltip.tooltip-left:before, .tooltip.tooltip-left:after {
+      left: 15px; }
+  .tooltip.tooltip-right {
+    right: -7px; }
+    .tooltip.tooltip-right:before, .tooltip.tooltip-right:after {
+      left: calc(100% - 33px); }
 
 .display-block {
   display: block; }
